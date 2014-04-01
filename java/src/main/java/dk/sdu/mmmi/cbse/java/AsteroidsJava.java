@@ -2,8 +2,8 @@ package dk.sdu.mmmi.cbse.java;
 
 import playn.core.PlayN;
 import playn.java.JavaPlatform;
-import dk.sdu.mmmi.cbse.project1.asteroids.AsteroidsGame;
-import dk.sdu.mmmi.cbse.project1.common.World;
+import dk.sdu.mmmi.cbse.project.asteroids.AsteroidsGame;
+import dk.sdu.mmmi.cbse.project.common.World;
 
 public class AsteroidsJava {
 
