@@ -1,0 +1,7 @@
+*.class
+*.prefs
+.settings
+.project
+build/
+*target/
+*.settings/
