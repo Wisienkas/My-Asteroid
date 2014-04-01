@@ -1,7 +1,26 @@
-*.class
-*.prefs
-.settings
+# Eclipse
+.classpath
 .project
-build/
-*target/
-*.settings/
+.settings/
+.metadata/
+
+# Android
+android/bin/
+android/gen/
+android/project.properties
+
+# IntelliJ
+.idea/
+*.iml
+*.iws
+
+# Mac
+.DS_Store
+
+# Maven
+log/
+target/
+
+# Windows
+
+# Linux
