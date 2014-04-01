@@ -36,9 +36,9 @@ public class EnemyShip extends Entity implements IShip{
 		health.hits = 5;
 		
 		physics = new Physics();
-		physics.drag = 0.9d;
-		physics.velocityX = 1d;
-		physics.velocityY = 1d;
+		physics.drag = 0.9f;
+		physics.velocityX = 1f;
+		physics.velocityY = 1f;
 		
 		img = new ImageData();
 		img.path = "images/EnemyShip.png";
@@ -69,8 +69,8 @@ public class EnemyShip extends Entity implements IShip{
 		}
 		
 		if((rnd.nextInt(6) + 1) % 2 == 0){
-			physics.velocityX = Math.cos(body.angle) * 2;
-			physics.velocityY = Math.sin(body.angle) * 2;
+			physics.velocityX = (float)Math.cos(body.angle) * 2;
+			physics.velocityY = (float)Math.sin(body.angle) * 2;
 		}
 		body.x += physics.velocityX;
 		body.y += physics.velocityY;

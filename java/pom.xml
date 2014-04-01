@@ -40,6 +40,12 @@
 			<artifactId>Ship</artifactId>
 			<version>${project.version}</version>
 		</dependency>
+
+		<dependency>
+			<groupId>dk.sdu.mmmi.cbse</groupId>
+			<artifactId>Asteroid</artifactId>
+			<version>${project.version}</version>
+		</dependency>
 	</dependencies>
 
 	<build>

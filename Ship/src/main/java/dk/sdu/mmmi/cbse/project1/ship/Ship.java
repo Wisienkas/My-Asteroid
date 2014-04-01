@@ -40,9 +40,9 @@ public class Ship extends Entity implements IShip{
 		health.hits = 5;
 		
 		physics = new Physics();
-		physics.drag = 0.9d;
-		physics.velocityX = 1d;
-		physics.velocityY = 1d;
+		physics.drag = 0.9f;
+		physics.velocityX = 1f;
+		physics.velocityY = 1f;
 		
 		img = new ImageData();
 		img.path = "images/Ship.png";

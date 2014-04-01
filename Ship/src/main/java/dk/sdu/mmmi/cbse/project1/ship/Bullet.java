@@ -32,8 +32,8 @@ public class Bullet extends Entity implements IShip{
 		img.path = "images/Bullet.png";
 		
 		physics = new Physics();
-		physics.velocityX = Math.cos(angle) * 5;
-		physics.velocityY = Math.sin(angle) * 5;
+		physics.velocityX = (float)Math.cos(angle) * 5;
+		physics.velocityY = (float)Math.sin(angle) * 5;
 		
 		health = new Health();
 		health.hits = 1;
