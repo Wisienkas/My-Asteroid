@@ -11,50 +11,53 @@ import dk.sdu.mmmi.cbse.project.common.ImageData;
 import dk.sdu.mmmi.cbse.project.common.Physics;
 import dk.sdu.mmmi.cbse.project.common.World;
 
-public class Bullet extends Entity implements IShip{
+public class Bullet implements IShip{
 
-	private Body body;
-	private ImageData img;
-	private Physics physics;
-	private Health health;
 	private int lifetime;
 	private Link<Entity> link;
+	Link<ImageData> imgLink;
 
 	public Bullet(float angle, double x, double y) {
-		body = new Body();
+		Body body = new Body();
 		body.angle = angle;
 		body.radius = 5;
 		body.x = (float) x;
 		body.y = (float) y;
 		
-		img = new ImageData();
+		ImageData img = new ImageData();
 		img.scale = 1;
 		img.path = "images/Bullet.png";
 		
-		physics = new Physics();
+		Physics physics = new Physics();
 		physics.velocityX = (float)Math.cos(angle) * 5;
 		physics.velocityY = (float)Math.sin(angle) * 5;
 		
-		health = new Health();
+		Health health = new Health();
 		health.hits = 1;
 		
 		lifetime = 50;
 		
-		link = context(World.getInstace()).add(Entity.class, this);
-		context(this).add(Body.class, body);
-		context(this).add(ImageData.class, img);
-		context(this).add(Physics.class, physics);
-		context(this).add(Health.class, health);
+		Entity entity = new Entity();
+		
+		link = context(World.Layer.ENTITYLAYER).add(Entity.class, entity);
+		context(entity).add(Body.class, body);
+		context(entity).add(ImageData.class, img);
+		context(entity).add(Physics.class, physics);
+		context(entity).add(Health.class, health);
+		context(entity).add(Link.class, link);
 		
 	}
 
 	@Override
 	public void process() {
+		Entity entity = link.getDestination();
+		Body body = context(entity).one(Body.class);
+		Physics physics = context(entity).one(Physics.class);
 		lifetime--;
 		body.x += physics.velocityX;
 		body.y += physics.velocityY;
 		if(lifetime < 1){
-			link.dispose();
+			context(World.Layer.DEADLAYER).add(Entity.class, entity);
 		}
 	}
 

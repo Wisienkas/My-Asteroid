@@ -22,14 +22,13 @@ public class KeyBoard extends Keyboard.Adapter{
 			keys.keys.put(KeyAction.D, false);
 			keys.keys.put(KeyAction.W, false);
 			keys.keys.put(KeyAction.SPACE, false);
-			context(World.getInstace()).add(Keys.class, keys);
+			context(World.Layer.ENTITYLAYER).add(Keys.class, keys);
 		}
 	}
 	
 	@Override
 	public void onKeyDown(Event e) {
-		System.out.println("pressed: " + e.key());
-		Keys keys = context(World.getInstace()).one(Keys.class);
+		Keys keys = context(World.Layer.ENTITYLAYER).one(Keys.class);
 		if(e.key().equals(Key.A)){
 			keys.keys.put(KeyAction.A, true);
 		}else if(e.key().equals(Key.S)){
@@ -45,7 +44,7 @@ public class KeyBoard extends Keyboard.Adapter{
 
 	@Override
 	public void onKeyUp(Event e) {
-		Keys keys = context(World.getInstace()).one(Keys.class);
+		Keys keys = context(World.Layer.ENTITYLAYER).one(Keys.class);
 		if(e.key().equals(Key.A)){
 			keys.keys.put(KeyAction.A, false);
 		}else if(e.key().equals(Key.S)){

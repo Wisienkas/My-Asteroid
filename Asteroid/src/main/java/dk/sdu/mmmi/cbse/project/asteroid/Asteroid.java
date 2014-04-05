@@ -22,7 +22,7 @@ public class Asteroid{
 	
 	public Asteroid(float scale){
 		entity = new Entity();
-		Link<Entity> link = context(World.getInstace()).add(Entity.class, entity);
+		Link<Entity> link = context(World.Layer.ENTITYLAYER).add(Entity.class, entity);
 		
 		context(entity).add(Link.class, link);
 		
@@ -32,7 +32,6 @@ public class Asteroid{
 		body.x = (float) rnd.nextInt((int)World.SCREENWITDH);
 		body.y = (float) rnd.nextInt((int)World.SCREENHEIGHT);
 		body.radius = imgRadius * scale;
-		System.out.println("Asteroid at x: " + body.x + "\ty: " + body.y);
 		
 		body.angle = (float) (((double) rnd.nextInt(1000) * Math.PI) / 500);
 		context(entity).add(Body.class, body);

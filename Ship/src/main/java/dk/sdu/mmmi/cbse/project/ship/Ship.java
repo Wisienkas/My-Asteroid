@@ -3,8 +3,8 @@ package dk.sdu.mmmi.cbse.project.ship;
 import static com.decouplink.Utilities.context;
 
 import java.awt.event.KeyAdapter;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
 import com.decouplink.Link;
@@ -27,6 +27,7 @@ public class Ship extends Entity implements IShip{
 	private Body body;
 	private KeyAdapter ka;
 	private Link<Entity> link;
+	private List<IShip> ammoList = new ArrayList<IShip>();
 	
 	public Ship(){
 		Random rnd = new Random();
@@ -50,7 +51,7 @@ public class Ship extends Entity implements IShip{
 		
 		me = new Entity();
 		
-		link = context(World.getInstace()).add(Entity.class, me);
+		link = context(World.Layer.ENTITYLAYER).add(Entity.class, me);
 		context(me).add(Body.class, body);
 		context(me).add(Health.class, health);
 		context(me).add(Physics.class, physics);
@@ -60,12 +61,15 @@ public class Ship extends Entity implements IShip{
 
 	@Override
 	public void process() {
-		Keys keys = context(World.getInstace()).one(Keys.class);
+		for (IShip bul : ammoList ) {
+			bul.process();
+		}
+		Keys keys = context(World.Layer.ENTITYLAYER).one(Keys.class);
 		if(keys.keys.get(KeyAction.A)){
-			body.angle+=0.1f;
+			body.angle-=0.1f;
 		}
 		if(keys.keys.get(KeyAction.D)){
-			body.angle-= 0.1f;
+			body.angle+= 0.1f;
 		}
 		if(keys.keys.get(KeyAction.W)){
 			accelerate(1f);
@@ -83,7 +87,7 @@ public class Ship extends Entity implements IShip{
 	}
 
 	private void fire() {
-		new Bullet(body.angle, body.x + Math.cos(body.angle) * 20, body.y + Math.sin(body.angle) * 20);
+		ammoList.add(new Bullet(body.angle, body.x + Math.cos(body.angle) * 20, body.y + Math.sin(body.angle) * 20));
 	}
 
 	private void accelerate(float f) {

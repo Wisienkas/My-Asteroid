@@ -5,16 +5,16 @@ import static playn.core.PlayN.assets;
 import static playn.core.PlayN.graphics;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+
+import com.decouplink.Link;
 
 import playn.core.Game;
 import playn.core.GroupLayer;
 import playn.core.ImageLayer;
-import playn.core.Keyboard;
-import playn.core.Platform;
 import playn.core.PlayN;
-import playn.core.Keyboard.Event;
-import playn.core.Keyboard.TypedEvent;
 import playn.core.util.Clock;
 import dk.sdu.mmmi.cbse.project.common.Body;
 import dk.sdu.mmmi.cbse.project.common.Entity;
@@ -28,6 +28,8 @@ public class AsteroidsGame extends Game.Default {
 	private GroupLayer layer;
 	private List<IGamePlugin> sl;
 	private KeyBoard kb;
+	private Map<Entity, Boolean> justProccesed = new HashMap<Entity, Boolean>();
+	private Map<Entity, Boolean> Proccesing = new HashMap<Entity, Boolean>();
 
 	public AsteroidsGame() {
 		super(33); // call update every 33ms (30 times per second)
@@ -57,7 +59,7 @@ public class AsteroidsGame extends Game.Default {
 	public void update(int delta) {
 		clock.update(delta);
 		List<Body> col_list = new ArrayList<Body>();
-		for (Entity entity : context(World.getInstace()).all(Entity.class)) {
+		for (Entity entity : context(World.Layer.ENTITYLAYER).all(Entity.class)) {
 			Body body = context(entity).one(Body.class);
 			if (body != null) {
 				col_list.add(body);
@@ -100,6 +102,10 @@ public class AsteroidsGame extends Game.Default {
 		Body body = context(entity).one(Body.class);
 		ImgData alreadyLayer = context(entity).one(ImgData.class);
 		
+		if(body == null || img_date == null){
+			return null;
+		}
+
 		if(alreadyLayer != null){
 			return alreadyLayer.currentLayer;
 		}
@@ -122,9 +128,20 @@ public class AsteroidsGame extends Game.Default {
 		// the background automatically paints itself, so no need to do anything
 		// here!
 		clock.paint(alpha);
+		
+		for (Entity e : context(World.Layer.DEADLAYER).all(Entity.class)) {
+			ImgData img_data = context(e).one(ImgData.class);
+			if(img_data != null && img_data.currentLayer != null){
+				img_data.currentLayer.destroy();
+			}
+			context(e).one(Link.class).dispose();
+		}
 
-		for (Entity e : context(World.getInstace()).all(Entity.class)) {
+		for (Entity e : context(World.Layer.ENTITYLAYER).all(Entity.class)) {
 			ImageLayer img = getImageLayer(e);
+			if(img == null){
+				continue;
+			}
 			Body body = context(e).one(Body.class);
 			img.setTranslation(body.x, body.y);
 			img.setRotation(body.angle);
