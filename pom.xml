@@ -31,6 +31,17 @@
 			<name>NetBeans</name>
 			<url>http://bits.netbeans.org/maven2/</url>
 		</repository>
+		<repository>
+			<id>MavenCentral</id>
+			<name>Maven repository</name>
+			<url>http://repo1.maven.org/maven2</url>
+			<releases>
+				<enabled>true</enabled>
+			</releases>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+		</repository>
 	</repositories>
 
 	<dependencies>
@@ -41,9 +52,19 @@
 			<type>jar</type>
 		</dependency>
 		<dependency>
+			<groupId>org.osgi</groupId>
+			<artifactId>org.osgi.core</artifactId>
+			<version>4.3.0</version>
+		</dependency>
+		<dependency>
 			<groupId>com.decouplink</groupId>
 			<artifactId>com.decouplink</artifactId>
 			<version>1.0</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.felix</groupId>
+			<artifactId>maven-bundle-plugin</artifactId>
+			<version>2.0.1</version>
 		</dependency>
 	</dependencies>
 

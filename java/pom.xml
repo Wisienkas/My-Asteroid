@@ -9,7 +9,6 @@
 	</parent>
 
 	<artifactId>java</artifactId>
-	<packaging>jar</packaging>
 	<name>Asteroids Java</name>
 
 	<properties>
@@ -47,30 +46,24 @@
 			<version>${project.version}</version>
 		</dependency>
 	</dependencies>
-
-	<build>
+<packaging>bundle</packaging>
+  
+  	<build>
 		<plugins>
-			<!-- builds a standalone jar file during 'mvn package' -->
 			<plugin>
-				<artifactId>maven-assembly-plugin</artifactId>
-				<version>2.4</version>
-				<configuration>
-					<descriptorRefs>
-						<descriptorRef>jar-with-dependencies</descriptorRef>
-					</descriptorRefs>
-					<archive>
-						<manifest>
-							<mainClass>${mainClass}</mainClass>
-						</manifest>
-					</archive>
-				</configuration>
+				<groupId>org.apache.felix</groupId>
+				<artifactId>maven-bundle-plugin</artifactId>
+				<version>2.0.1</version>
+				<extensions>true</extensions>
 				<executions>
 					<execution>
-						<id>make-assembly</id>
-						<phase>package</phase>
+						<id>wrap-my-dependency</id>
 						<goals>
-							<goal>single</goal>
+							<goal>wrap</goal>
 						</goals>
+						<configuration>
+							<wrapImportPackage>;</wrapImportPackage>
+						</configuration>
 					</execution>
 				</executions>
 			</plugin>

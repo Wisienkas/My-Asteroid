@@ -1,0 +1,7 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Ship
+Bundle-SymbolicName: Ship
+Bundle-Version: 1.0.0.qualifier
+Import-Package: dk.sdu.mmmi.cbse.project.gamespi,org.osgi.framework
+Export-Package: dk.sdu.mmmi.cbse.project.ship

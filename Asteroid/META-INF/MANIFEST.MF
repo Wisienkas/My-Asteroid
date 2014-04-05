@@ -1,0 +1,7 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Asteroid
+Bundle-SymbolicName: Asteroid
+Bundle-Version: 1.0.0.qualifier
+Export-Package: dk.sdu.mmmi.cbse.project.asteroid;uses:="dk.sdu.mmmi.cbse.project.gamespi"
+Import-Package: dk.sdu.mmmi.cbse.project.gamespi

@@ -1,0 +1,8 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: java
+Bundle-SymbolicName: java
+Bundle-Version: 1.0.0.qualifier
+Bundle-Activator: dk.sdu.mmmi.cbse.java.AsteroidsGameActivator
+Import-Package: dk.sdu.mmmi.cbse.project.asteroids,org.osgi.framework
+Export-Package: dk.sdu.mmmi.cbse.java

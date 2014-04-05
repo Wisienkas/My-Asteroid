@@ -7,6 +7,7 @@
 		<version>1.0-SNAPSHOT</version>
 	</parent>
 	<artifactId>Asteroid</artifactId>
+
 	<dependencies>
 		<dependency>
 			<groupId>dk.sdu.mmmi.cbse</groupId>
@@ -14,4 +15,27 @@
 			<version>${project.version}</version>
 		</dependency>
 	</dependencies>
+	<packaging>bundle</packaging>
+  
+  	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.felix</groupId>
+				<artifactId>maven-bundle-plugin</artifactId>
+				<version>2.0.1</version>
+				<extensions>true</extensions>
+				<executions>
+					<execution>
+						<id>wrap-my-dependency</id>
+						<goals>
+							<goal>wrap</goal>
+						</goals>
+						<configuration>
+							<wrapImportPackage>;</wrapImportPackage>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
 </project>

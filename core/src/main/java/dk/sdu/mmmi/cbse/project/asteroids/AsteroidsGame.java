@@ -28,12 +28,10 @@ public class AsteroidsGame extends Game.Default {
 	private GroupLayer layer;
 	private List<IGamePlugin> sl;
 	private KeyBoard kb;
-	private Map<Entity, Boolean> justProccesed = new HashMap<Entity, Boolean>();
-	private Map<Entity, Boolean> Proccesing = new HashMap<Entity, Boolean>();
 
 	public AsteroidsGame() {
 		super(33); // call update every 33ms (30 times per second)
-		sl = ServiceSPI.locateAll(IGamePlugin.class);
+//		sl = ServiceSPI.locateAll(IGamePlugin.class);
 	}
 
 	@Override
