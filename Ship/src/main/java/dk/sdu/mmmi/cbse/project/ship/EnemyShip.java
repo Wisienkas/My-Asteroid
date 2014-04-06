@@ -15,6 +15,7 @@ import dk.sdu.mmmi.cbse.project.common.ImageData;
 import dk.sdu.mmmi.cbse.project.common.Physics;
 import dk.sdu.mmmi.cbse.project.common.World;
 
+@SuppressWarnings("restriction")
 public class EnemyShip extends Entity implements IShip{
 	
 	private int moves;
@@ -55,7 +56,6 @@ public class EnemyShip extends Entity implements IShip{
 		
 	}
 
-	@Override
 	public void process() {
 		for (IShip bul : ammoList) {
 			bul.process();

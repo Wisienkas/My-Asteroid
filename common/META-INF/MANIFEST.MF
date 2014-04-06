@@ -4,4 +4,3 @@ Bundle-Name: common
 Bundle-SymbolicName: common
 Bundle-Version: 1.0.0.qualifier
 import-package: org.osgi.framework
-Export-Package: dk.sdu.mmmi.cbse.project.common

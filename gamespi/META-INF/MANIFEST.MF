@@ -1,7 +1,0 @@
-Manifest-Version: 1.0
-Bundle-ManifestVersion: 2
-Bundle-Name: gamespi
-Bundle-SymbolicName: gamespi
-Bundle-Version: 1.0.0.qualifier
-import-package: dk.sdu.mmmi.cbse.project.common,org.osgi.framework
-Export-Package: dk.sdu.mmmi.cbse.project.gamespi

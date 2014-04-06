@@ -104,10 +104,6 @@
 		</profile>
 	</profiles>
 	<modules>
-		<module>assets</module>
-		<module>core</module>
-		<module>gamespi</module>
-		<module>common</module>
 		<module>Ship</module>
 		<module>Asteroid</module>
 	</modules>

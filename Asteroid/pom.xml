@@ -7,14 +7,6 @@
 		<version>1.0-SNAPSHOT</version>
 	</parent>
 	<artifactId>Asteroid</artifactId>
-
-	<dependencies>
-		<dependency>
-			<groupId>dk.sdu.mmmi.cbse</groupId>
-			<artifactId>gamespi</artifactId>
-			<version>${project.version}</version>
-		</dependency>
-	</dependencies>
 	<packaging>bundle</packaging>
   
   	<build>

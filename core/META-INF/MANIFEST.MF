@@ -1,7 +1,0 @@
-Manifest-Version: 1.0
-Bundle-ManifestVersion: 2
-Bundle-Name: core
-Bundle-SymbolicName: core
-Bundle-Version: 1.0.0.qualifier
-import-package: dk.sdu.mmmi.cbse.project.common,dk.sdu.mmmi.cbse.project.gamespi,org.osgi.framework
-Export-Package: dk.sdu.mmmi.cbse.project.asteroids

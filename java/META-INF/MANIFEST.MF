@@ -2,7 +2,23 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: java
 Bundle-SymbolicName: java
-Bundle-Version: 1.0.0.qualifier
+Bundle-Version: 1.0.qualifier
 Bundle-Activator: dk.sdu.mmmi.cbse.java.AsteroidsGameActivator
-Import-Package: dk.sdu.mmmi.cbse.project.asteroids,org.osgi.framework
-Export-Package: dk.sdu.mmmi.cbse.java
+Import-Package: com.decouplink,
+ com.decouplink.core,
+ org.osgi.framework;version="2.4.0",
+ playn.core,
+ playn.core.canvas,
+ playn.core.gl,
+ playn.core.json,
+ playn.core.util,
+ playn.java,
+ pythagoras.d,
+ pythagoras.f,
+ pythagoras.i,
+ pythagoras.util
+
+Export-Package: dk.sdu.mmmi.cbse.java;uses:="org.osgi.framework";version="1.0",
+ dk.sdu.mmmi.cbse.project.common;version="1.0",
+ dk.sdu.mmmi.cbse.project.gamespi;version="1.0"
+Require-Bundle:  Playn, java-playn

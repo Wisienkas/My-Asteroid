@@ -1,5 +1,9 @@
 package dk.sdu.mmmi.cbse.java;
 
+import java.io.File;
+import java.io.OutputStream;
+import java.io.OutputStreamWriter;
+
 import org.osgi.framework.BundleActivator;
 import org.osgi.framework.BundleContext;
 
@@ -9,20 +13,18 @@ public class AsteroidsGameActivator implements BundleActivator{
 		System.out.println(this.getClass().getName() + " Has been installed");
 	}
 	
-	@Override
-	public void start(BundleContext bc) throws Exception {
+	public void start(BundleContext arg0) throws Exception {
 		AsteroidsGameService service = new AsteroidsJava();
-		bc.registerService(AsteroidsGameService.class, service, null);
+		arg0.registerService(AsteroidsGameService.class.getName(), service, null);
 		System.out.println("Service registrered: " + AsteroidsGameService.class.getName() 
 				+ "\tImplementaion: " + AsteroidsJava.class.getName());
+		File file = new File("lol");
 	}
 
-	@Override
-	public void stop(BundleContext bc) throws Exception {
+	public void stop(BundleContext arg0) throws Exception {
 		System.out.println("Stopped Service: " + AsteroidsGameService.class.getName());
 	}
 	
-	@Override
 	protected void finalize() throws Throwable {
 		System.out.println(this.getClass().getName() + " Has been unistalled");
 		super.finalize();

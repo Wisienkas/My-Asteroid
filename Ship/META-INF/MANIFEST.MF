@@ -3,5 +3,12 @@ Bundle-ManifestVersion: 2
 Bundle-Name: Ship
 Bundle-SymbolicName: Ship
 Bundle-Version: 1.0.0.qualifier
-Import-Package: dk.sdu.mmmi.cbse.project.gamespi,org.osgi.framework
+Import-Package: dk.sdu.mmmi.cbse.project.gamespi;version="1.0",
+ org.osgi.framework;version="2.4.0",
+ dk.sdu.mmmi.cbse.project.common;version="1.0"
+ com.decouplink;version="1.0",
+ com.decouplink.core;version="1.0"
 Export-Package: dk.sdu.mmmi.cbse.project.ship
+Require-Bundle: dk.sdu.mmmi.cbse.java;bundle-version="1.0",
+ org.eclipse.osgi;bundle-version="3.8.2",
+ Playn;version="1.0"

@@ -11,6 +11,7 @@ import dk.sdu.mmmi.cbse.project.common.ImageData;
 import dk.sdu.mmmi.cbse.project.common.Physics;
 import dk.sdu.mmmi.cbse.project.common.World;
 
+@SuppressWarnings("restriction")
 public class Bullet implements IShip{
 
 	private int lifetime;
@@ -48,7 +49,6 @@ public class Bullet implements IShip{
 		
 	}
 
-	@Override
 	public void process() {
 		Entity entity = link.getDestination();
 		Body body = context(entity).one(Body.class);

@@ -2,6 +2,7 @@ package dk.sdu.mmmi.cbse.project.ship;
 
 import static com.decouplink.Utilities.context;
 
+
 import java.awt.event.KeyAdapter;
 import java.util.ArrayList;
 import java.util.List;
@@ -17,7 +18,7 @@ import dk.sdu.mmmi.cbse.project.common.KeyAction;
 import dk.sdu.mmmi.cbse.project.common.Keys;
 import dk.sdu.mmmi.cbse.project.common.Physics;
 import dk.sdu.mmmi.cbse.project.common.World;
-
+@SuppressWarnings("restriction")
 public class Ship extends Entity implements IShip{
 	
 	private Entity me;
@@ -59,7 +60,6 @@ public class Ship extends Entity implements IShip{
 	}
 
 
-	@Override
 	public void process() {
 		for (IShip bul : ammoList ) {
 			bul.process();
